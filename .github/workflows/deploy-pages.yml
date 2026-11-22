@@ -1,0 +1,69 @@
+name: Deploy ULOOK Interior to GitHub Pages
+
+on:
+  push:
+    branches:
+      - v40-upload
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Prepare GitHub Pages build
+        run: |
+          mkdir -p dist
+          cp -a public/. dist/
+          python3 - <<'PY'
+          from pathlib import Path
+
+          root = Path("dist")
+          for p in root.rglob("*"):
+              if not p.is_file():
+                  continue
+              try:
+                  s = p.read_text(encoding="utf-8")
+              except (UnicodeDecodeError, OSError):
+                  continue
+
+              s = s.replace("/assets/", "assets/")
+              s = s.replace("/ulook-floating-icons-v2.js", "ulook-floating-icons-v2.js")
+              s = s.replace("https://ulook-interior.web.app/", "https://gamermanoj7-create.github.io/ulook-interior.com/")
+              s = s.replace("https://www.ulook.in/", "https://gamermanoj7-create.github.io/ulook-interior.com/")
+              p.write_text(s, encoding="utf-8")
+
+          (root / ".nojekyll").touch()
+          PY
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

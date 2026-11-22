@@ -1,0 +1,16 @@
+ULOOK INTERIOR - V5 FIX REPORT (13 Nov 2026)
+Includes everything from V4 (sticky 3D chapters fixed, videos autoplay on scroll, no play buttons).
+
+V5 CHANGES
+1. Photo size: 3D walkthrough frames and the domestic / kitchen / commercial /
+   architecture photo sliders were fixed portrait boxes with "contain", so landscape
+   photos sat small inside cream/dark padding. Each frame now takes its own photo's
+   aspect ratio and the photo fills it (no letterbox, no padding).
+   Walkthrough frames are also scaled up to offset the 3D perspective shrink.
+2. Spacing: section padding on phones reduced (64px -> 40px etc.); scroll length of
+   build, plan, spaces, assemble, layers, precision, growth, story, ribbon and every
+   photo slider shortened. Page height on 390px phone: 52,871px -> about 47,000px.
+3. Tested again on 390x844 and 1365x900: 0 blank frames across 33 sections,
+   videos playing without controls, 0 JavaScript errors.
+
+NOT TESTED: real phone, live Firebase URL. Not deployed.

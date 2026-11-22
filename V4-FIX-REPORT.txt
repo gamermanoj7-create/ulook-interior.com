@@ -1,0 +1,32 @@
+ULOOK INTERIOR - V4 FIX REPORT (13 Nov 2026)
+Base: ulook-interior-v3-intro-restored (newest of the four packages). Intro kept as-is.
+
+ROOT CAUSE OF THE BROKEN / BLANK 3D SCROLL
+html AND body both had overflow-x:hidden. That turns <body> into its own scroll
+container, so every position:sticky 3D stage (walk into home, plan->3D->finished,
+spaces, 3D walkthrough, films, assemble ...) could not pin. The stage scrolled away
+and the rest of each chapter was an empty navy/cream screen.
+FIX: overflow clipping now lives on <html> only (overflow-x:clip where supported,
+hidden as fallback); <body> is overflow:visible. Sticky pinning works again.
+
+VIDEOS
+- Removed native controls and every visible play / "Tap to play" button.
+- Scroll films and the construction film play automatically (muted, inline) when
+  they reach the screen and pause when they leave. If a phone blocks autoplay, the
+  next touch starts the video silently - no button is shown.
+- Native media controls are also hidden by CSS on all browsers.
+
+TESTED (Chromium, scrolled the full page)
+- Mobile 390x844 and 360x740, desktop 1365x900: 33 sections, 4 scroll positions
+  each; before the fix 8 chapters showed solid blank frames, after the fix 0.
+- Videos: filmDV, kitchen, construction - playing, currentTime advancing, no controls.
+- Intro finishes, scroll lock is released; no horizontal overflow at
+  320 / 390 / 768 / 1365 px; 0 JavaScript errors.
+
+NOT TESTED
+- Real iPhone / Android handset and the live Firebase URL (no access from here).
+  Please check on a phone after deploy. Not deployed by me.
+
+DEPLOY (Termux)
+  unzip -q ulook-interior-v4-fixed.zip -d ~/ulook-v4
+  cd ~/ulook-v4/ulook-deploy-verified && firebase deploy --only hosting

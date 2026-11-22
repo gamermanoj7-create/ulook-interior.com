@@ -1,0 +1,15 @@
+ULOOK INTERIOR - V6 FIX REPORT (13 Nov 2026)
+Includes V4 (sticky 3D chapters, videos autoplay, no play buttons) and V5 (photos fill frames).
+
+V6 CHANGES
+1. Animations were too fast: V5 had shortened the scroll length of the 3D chapters.
+   Restored and slowed them (phone, per chapter): Selected spaces 340vh, Walk into
+   home 310vh, Plan->3D->Finished 300vh, Assemble 310vh, 3D walkthrough 340vh,
+   Layers/Precision/Growth 240vh, Story 280vh, Ribbon 210vh, photo sliders +10%.
+2. Selected spaces ("Spaces that feel like you"): the frame now uses all free height
+   (no empty block under the tabs) and the photo fills it.
+3. Section padding stays tighter than V3 (from V5).
+
+TESTED (Chromium): 390x844 all 33 sections, 4 scroll positions each, 0 blank frames,
+0 JavaScript errors; desktop 1365x900 Selected spaces checked.
+NOT TESTED: real phone, live Firebase. Not deployed.

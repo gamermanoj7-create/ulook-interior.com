@@ -1,0 +1,9 @@
+ULOOK INTERIOR - V31 REVIEWS (14 Nov 2026)
+BASE: V30. Only the review section + one nav link changed.
+1. Review section rebuilt: only a short title, a 3D phone (your video plays inside the screen), review cards that fly OUT of the phone one by one, counter + arrows, and the "Write a Google Review" button. Removed: eyebrow, subtitle, notes, status/error text, 2nd video, loading skeleton.
+2. BLANK FIXED: old section tried to load reviews from Firebase (not connected) so it showed "could not load". Now your 17 REAL Google reviews are inside index.html - no backend, nothing to connect, can never be blank. Typed exactly as posted (spelling kept), owner replies left out. 2 reviewer photos (Samir, Dipa) cropped from your screenshots.
+3. NAV: new "Reviews" link (menu + mobile menu). It jumps straight to this section only and closes the menu.
+4. 3D phone: real depth (gold edge), idle sway, mouse tilt on desktop, drag/spin with finger, light pulse when a card emerges. Cards: swipe, arrows, keyboard, auto-advance every 6.5s (pauses on touch/hover), Read more on long reviews.
+5. Video: assets/video/reviews-phone.mp4 (+poster). Plays only while the section is visible, muted, loop.
+TESTED (Chromium 390px + 1366px): 0 JS errors, no sideways scroll, nav click lands on the section, card animation, long review. NOT TESTED: real phone, deploy.
+DEPLOY: firebase deploy --only hosting (functions/Firebase review sync no longer needed).

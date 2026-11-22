@@ -1,0 +1,9 @@
+ULOOK INTERIOR - V10 (13 Nov 2026)
+0. V11: effects replaced with 10 calmer premium 3D moves; scroll per photo ~2x longer and smoother glide (slower).
+1. INTRO: logo intro now ~6.7s (was ~3s). Network flight -> sparks gather -> ULOOK logo fades in slowly -> light sweep -> fade. Skip button still there; hard cap 11s so it can never block the site.
+2. PHOTO SLIDERS (Homes we have finished / Kitchens / Commercial / Architecture): every photo now has its OWN 3D move (14 different moves: cube, door swing, flip, fly-through, spiral, cover-flow, calendar fold, elevator, pinwheel, tumble, page turn, dolly+twist, diagonal glide, barrel roll). Long slider cycles them so two neighbours never match. Light sheen added on all.
+3. "How we work" step 1 (Discover): sketch photo replaced with a finished bedroom photo.
+4. MOBILE: 3D walkthrough counter (04 / 08) no longer hides under Call/WhatsApp buttons.
+5. TYPE: heading balance, eyebrow labels, subtitle weight/size, counters - premium spacing. No colours/content changed.
+NOT CHANGED: Before/after (sketch->built) still uses the sketch on purpose; Plan section 3D view.
+TESTED (Chromium 390px): 0 JS errors, no sideways scroll, intro removed at ~6.7s. NOT TESTED: real phone, live fonts. Not deployed.

@@ -1,0 +1,39 @@
+ULOOK INTERIOR — V3 REPAIR REPORT
+Date: 13 November 2026
+
+IMPLEMENTED CHANGES
+1. Removed the full-screen ULOOK logo intro overlay, its skip button, canvas/particle animation, intro CSS, scroll lock and all intro-only code. The website opens directly to the homepage; the branded navbar remains.
+2. Fixed a root-cause hero animation bug: the exterior-to-interior controller previously ran before the homepage DOM existed and exited. It is now loaded after the page markup. Its inline style updates can override legacy !important rules, and the mobile scroll distance is shorter.
+3. Rebuilt the first viewport using the approved navy / sky-blue / sage / champagne palette. The exterior photo is visible on first paint, fills its frame with object-fit: cover, and has a fallback image.
+4. Reduced excessively long scroll travel in the domestic, kitchen, architecture and commercial photo galleries, plus selected scroll-led design chapters.
+5. Enabled native controls on all scroll-driven cinematic videos. If autoplay is rejected, a visible tap-to-play action appears. If a media source errors, a retry action is shown. Existing muted inline autoplay remains the first attempt.
+6. Corrected robots.txt and sitemap.xml to use the same Firebase canonical URL used by the site.
+7. Preserved the Firebase project configuration, existing Firestore configuration and all original media files. Original backup HTML remains in source-archive.
+
+FRESH VALIDATION RESULTS
+- Inline JavaScript syntax: 14 blocks passed; 0 syntax failures.
+- Embedded CSS parse: 29 blocks passed; 0 parse errors.
+- Duplicate HTML IDs: 0.
+- Intro overlay/JS/CSS references remaining: 0.
+- Literal local asset references: 123 checked; 0 missing.
+- PH / PH4K / IMG asset-map entries: 96 checked; 0 missing.
+- Raster images: 248 decoded; 0 decode failures.
+- MP4 files: 7 checked; all expose an H.264 video stream.
+- Internal fragment links: 39 checked; 0 broken.
+- First-viewport Chromium visual test: 390x844 mobile and 1365x900 desktop; no horizontal overflow. Hero image rendered at 3840px source width.
+- Hero transition Chromium test: start / middle / end states verified; exterior expands, interior appears, copy and progress update; 0 JavaScript page errors.
+- Video fallback Chromium test: simulated autoplay rejection and media error; native controls and retry action present; 0 JavaScript page errors.
+- Responsive geometry checked at 320x640, 360x800, 390x844, 768x1024, 1024x768, 1365x900 and 1920x1080. No horizontal page overflow.
+
+NOT VERIFIED / DEPLOYMENT LIMITATION
+- The live Firebase URL could not be reached from this execution environment (DNS/network access is blocked), and no authenticated Firebase CLI is installed here. Therefore this package has NOT been deployed to Firebase by the assistant.
+- Actual media playback on the user's Android browser and the live-hosted version still need a post-deploy device check. MP4 codec/asset integrity and the autoplay fallback logic were checked locally.
+
+DEPLOY FROM TERMUX
+1. Download ulook-interior-v3-fixed.zip to Android Downloads.
+2. Run:
+   mkdir -p ~/ulook-v3-deploy
+   unzip -q /storage/emulated/0/Download/ulook-interior-v3-fixed.zip -d ~/ulook-v3-deploy
+   cd ~/ulook-v3-deploy/ulook-deploy-verified
+   firebase deploy --only hosting
+3. Confirm Firebase prints Deploy complete and Hosting URL https://ulook-interior.web.app

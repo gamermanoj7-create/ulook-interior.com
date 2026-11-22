@@ -1,0 +1,26 @@
+ULOOK INTERIOR - V9 FIRST-IMPRESSION UPGRADE (13 Nov 2026)
+Includes V8 (architecture photo fix + 9 different 3D effects).
+
+SPEED
+- Hero + interior photo now responsive: phone loads ~70KB (was ~680KB), desktop ~130KB. Full 4K only on very large screens.
+- Hero photo preloaded (high priority). Photo sliders load reliably on slow networks.
+INTRO
+- Network intro cut from ~6.7s to ~3s (Skip button still there).
+HERO
+- Primary button: "Get a quote". Secondary: "Explore projects". Trust line under buttons: 14+ years, 5400+ projects delivered, 4.9+ client rating (the verified numbers).
+- Sticky Call button above the WhatsApp button (all pages, phone + desktop).
+PORTFOLIO
+- Filter chips: All / Living / Bedroom / Kitchen / Full home / Lounge.
+CONTACT
+- Google Map (Kalyani B1/30) + "Open in Google Maps" link, next to the existing quote form.
+SEO / SHARING
+- WhatsApp / social share preview image (assets/og-image.jpg), large-card tags, apple-touch icon,
+  richer LocalBusiness schema (image, logo, area served, map, contact point).
+COLOURS
+- Everything new uses ONLY the client palette: blue #123B78, sage #9DBDB8, cream #F0E7D6,
+  terracotta #D96B50, navy #17243B. Blue border lines kept. Existing theme untouched.
+
+NOT ADDED (needs real data from the owner - nothing invented): client review texts,
+Google review link, per-project area/duration/budget.
+TESTED (Chromium): 390 / 360 / 1365 px - 0 JS errors, no sideways scroll, all sliders load.
+NOT TESTED: real phone, live Google Map (needs internet), live Firebase. Not deployed.

@@ -1,0 +1,26 @@
+ULOOK INTERIOR — V36 FINAL IMAGE & COMPARISON REPAIR
+====================================================
+Source: ULOOK-Interior-V35-Fixed.zip (the previously supplied full V35 package)
+
+Changes:
+1. Removed the measured-facade image with red 3M / 10M / 6M / 6M / 4M / 6M arrows from the Exterior & Layout carousel.
+2. Removed its PH map entry and physical public asset; carousel now shows 8 valid references and the counter is /08.
+3. Rebuilt the comparison image pairs from the supplied source assets and normalized all six comparison crops to 4:3:
+   - Living room: two views of the same living-room design (matching TV wall, sofa, marble feature wall, lighting and rug).
+   - Bedroom: the photo portion of the supplied bedroom-design/elevation reference (CAD elevation excluded) paired with the matching warm-neutral bedroom concept view.
+   - Kitchen: two photos of the same yellow/grey modular kitchen from alternate angles.
+4. Removed the mismatched cream/blue generated kitchen pair from the comparison selector.
+5. Set one consistent 4:3 comparison frame so none of the three pairs changes shape between tabs; kept the existing slider control and colour images.
+6. Preserved Firebase configuration, Functions, original page content and existing 3D/photo carousel scripts.
+
+Verification performed after edits:
+- Measurement image reference search: no remaining HTML / JavaScript reference.
+- Measurement asset: removed.
+- Architecture carousel array: 8 slides; HUD counter /08.
+- Comparison pairs: 6 files present; all pre-cropped to 4:3.
+- Full site local asset reference, duplicate-ID and inline-JavaScript checks are recorded separately in V36-VALIDATION.txt.
+
+Accuracy note:
+- Living room views and kitchen views are of the same matching interior design/project from alternate framings/angles.
+- The bedroom pair is a matched design-reference / finished-concept pair. The supplied files do not prove it is a photograph of the same physical room before and after renovation.
+- This is a source-package repair. No Firebase deployment or physical Android browser test was performed.

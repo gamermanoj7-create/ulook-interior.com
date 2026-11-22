@@ -1,0 +1,17 @@
+ULOOK INTERIOR - V8 FIX REPORT (13 Nov 2026)
+Only the "Exterior & layout concepts" photo slider (and the shared slider image loader) changed.
+
+1. PHOTO FIX: photos showed a white box with alt text ("Modern villa at dusk interior by ULOOK Interior").
+   Cause: images were loading="lazy" inside 3D-transformed frames, so the browser never started
+   loading them on phones. Now they load eagerly with high priority, the next 2-3 photos are
+   pre-loaded, the first 3 start loading before you reach the section, a failed photo retries once,
+   and a photo fades in when ready (no alt text flash).
+2. 9 DIFFERENT 3D EFFECTS (one per photo, used for its entrance and exit):
+   01 cube turn, 02 door swing, 03 flip over, 04 fly-through zoom, 05 spiral,
+   06 cover-flow, 07 calendar fold, 08 elevator rise, 09 pinwheel roll.
+   Plus a moving light sheen on each frame. 9 photos, all different (no repeats).
+3. Photo 06 had a solid black bar at the bottom inside the file itself; cropped it off.
+
+NOT CHANGED: every other section, text, colours, speeds.
+TESTED (Chromium): 390, 360, 1365 px - 0 JS errors, all 9 photos load, page width = screen width.
+NOT TESTED: real phone. Not deployed.
