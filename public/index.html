@@ -3217,24 +3217,74 @@ footer .ulook-social-icon.google-icon img{width:60px!important;height:60px!impor
 <!-- OPTIMIZED FULL PROJECT VIDEO -->
 <section class="project-journey" id="projectJourney">
   <div class="pj-video-frame">
-    <video id="pjJourneyVideo" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture aria-label="ULOOK Interior project journey">
-      <source src="assets/video/166270-optimized.mp4" type="video/mp4">
+    <video id="pjJourneyVideo" muted loop playsinline webkit-playsinline preload="none" disablepictureinpicture aria-label="ULOOK Interior project journey">
+      <source data-src="assets/video/166270-optimized.mp4" type="video/mp4">
     </video>
   </div>
 </section>
 <script>
 (function(){
+  'use strict';
   const v=document.getElementById('pjJourneyVideo');
-  if(!v)return;
-  v.muted=true;v.defaultMuted=true;v.playsInline=true;v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');
-  const play=()=>{if(document.visibilityState==='hidden')return;const p=v.play();if(p&&p.catch)p.catch(()=>{});};
-  if(v.readyState>=2)play();else v.addEventListener('canplay',play,{once:true});
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&v.paused)play();});
-  window.addEventListener('pageshow',()=>{if(v.paused)play();});
-  v.addEventListener('pause',()=>{if(!document.hidden&&v.currentTime>0&&v.currentTime<v.duration){}});
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(entries=>{if(entries[0].isIntersecting&&v.paused)play();},{threshold:.15}).observe(v);
+  const sec=document.getElementById('projectJourney');
+  if(!v||!sec)return;
+
+  v.muted=true;
+  v.defaultMuted=true;
+  v.playsInline=true;
+
+  let loaded=false;
+  let visible=false;
+
+  function loadVideo(){
+    if(loaded)return;
+    const source=v.querySelector('source[data-src]');
+    if(!source)return;
+    source.setAttribute('src',source.getAttribute('data-src'));
+    source.removeAttribute('data-src');
+    loaded=true;
+    v.load();
   }
+
+  function playVideo(){
+    if(!loaded||!visible||document.hidden)return;
+    const p=v.play();
+    if(p&&p.catch)p.catch(function(){});
+  }
+
+  function pauseVideo(){
+    if(!v.paused)v.pause();
+  }
+
+  if('IntersectionObserver' in window){
+    const observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          visible=true;
+          loadVideo();
+          if(v.readyState>=2)playVideo();
+          else v.addEventListener('canplay',playVideo,{once:true});
+        }else{
+          visible=false;
+          pauseVideo();
+        }
+      });
+    },{rootMargin:'250px 0px',threshold:0});
+    observer.observe(sec);
+  }else{
+    visible=true;
+    loadVideo();
+    v.addEventListener('canplay',playVideo,{once:true});
+  }
+
+  document.addEventListener('visibilitychange',function(){
+    if(document.hidden)pauseVideo();
+    else if(visible)playVideo();
+  });
+
+  window.addEventListener('pageshow',function(){
+    if(visible)playVideo();
+  });
 })();
 </script>
 
