@@ -1,0 +1,2 @@
+HTML asset references checked: 368
+Missing local asset references: 0

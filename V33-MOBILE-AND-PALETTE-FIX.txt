@@ -1,0 +1,18 @@
+ULOOK INTERIOR — V33 MOBILE, PALETTE AND BEFORE/AFTER FIX
+
+Base: V32 full project.
+
+Changes:
+- Unified page and section backgrounds to one beige/cream colour (#F3EBDD), including the header, hero, services, gallery, review, contact and footer sections.
+- Golden text accents (#92702B / #A77D2B) and sky-blue photo borders (#55BFE8).
+- Applied consistent blue borders to individual photos; removed redundant borders from the wrappers around service cards.
+- Fixed the Before/After comparison: Living Room, Bedroom and Kitchen each now use different matching before/after image files; removed the extra tint and grid overlay and removed inner image borders. The comparison card has one outer sky-blue frame.
+- Set Before/After photo sides to contain on mobile so their full room views are not cropped.
+- Fixed gallery presentation on mobile: cream gallery background, image centered at natural aspect ratio, and blue frame tightly around the image.
+- Improved mobile full-width behaviour, navigation, spacing, comparison controls and two-column service gallery.
+- Removed the previously baked border from the four generated kitchen source images so the website CSS draws one consistent border.
+- Preserved Firebase configuration, Firestore rules, Functions, all existing page content and videos.
+
+Deploy from v30 folder using: firebase deploy --only hosting
+
+Review on multiple phone sizes before publishing.

@@ -1,0 +1,17 @@
+ULOOK INTERIOR - V7 FIX REPORT (13 Nov 2026)
+Includes V4 (sticky 3D chapters, videos autoplay, no play buttons), V5 (photos fill
+frames), V6 (slower chapters, Selected spaces fills screen).
+
+V7 CHANGES
+1. Photo sliders (Domestic 38 photos, Kitchens, Architecture, Commercial) were far too
+   fast - about 7vh of scroll per photo. Now 22vh per photo (domestic), 34vh (kitchens
+   / architecture), 44vh (commercial) on phones, plus a "dwell" motion: each photo
+   rests in the centre, then glides to the next.
+2. Mobile width: 3D frames, cards and carousels extended past the screen edge, so
+   Android browsers zoomed the page out and left a blank strip on the right. Every
+   section now clips its own horizontal overflow; measured page width equals screen
+   width at 360 and 390 px, even with the html/body clip switched off.
+
+TESTED (Chromium): 33 sections x 4 scroll positions at 390x844 - 0 blank frames;
+videos playing with no controls; 0 JavaScript errors at 360 / 390 / 1365.
+NOT TESTED: real phone, live Firebase. Not deployed.

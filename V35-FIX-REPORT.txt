@@ -1,0 +1,29 @@
+ULOOK INTERIOR — V35 CARD, PHOTO MATCHING & COLOUR REPAIR
+==========================================================
+Source: V34 project working copy
+Changed file: public/index.html
+
+Changes:
+- Restored all 24 service cards in a stable 4-column desktop / 2-column mobile grid.
+- Fixed card sizing with a stable aspect ratio; each image fills its card and the title remains visible.
+- Sky-blue border is applied to the service-card frame, not the nested photo.
+- Quality gallery uses a balanced 3-image composition with no oversized blank portrait panel.
+- Comparison images are full colour; grayscale, blend and comparison-grid overlays are disabled.
+- Replaced the mismatched comparison photos with closer room/style pairings:
+  * Living room: livingDetail.webp / living.webp
+  * Bedroom: bedroom-design-elevation-reference.jpg / bedroom-1400.webp
+  * Kitchen: modular-kitchen-03-4k.jpg / modular-kitchen-04-4k.jpg
+- Gold text is retained in the comparison and service sections.
+- Long cinematic / full-bleed photos are not given extra sky-blue borders.
+
+Verification:
+- 24 service cards found; all 24 card image files exist.
+- 36 local src/poster/CSS image references checked; 0 missing.
+- Duplicate HTML IDs: 0.
+- 18 inline JavaScript blocks passed Node syntax checks.
+- Comparison pair image files: 6/6 present.
+
+Important:
+- The available source package contains curated room/style pairings, but does not prove every reference and finished photo is the same physical room photographed before and after. They are presented as design-reference and finished-inspiration examples.
+- No live browser/device visual test was completed in this environment.
+- No Firebase deployment was performed.

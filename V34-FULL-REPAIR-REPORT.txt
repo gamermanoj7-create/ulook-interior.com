@@ -1,0 +1,23 @@
+ULOOK INTERIOR — V34 FULL REPAIR
+
+Base: V33 full website project.
+
+Repairs performed:
+- Removed the V32 global image-border stylesheet that added borders/radii to every image, including 3D layers.
+- Replaced the broad V33 stylesheet with targeted theme and responsive rules.
+- Kept existing scroll-based 3D JS, perspective, transform-style, sticky scene heights and animation scripts intact.
+- Recoloured the nested 3D sticky stages (walkthrough, Plan-to-3D, Selected Spaces, photo films and related sections) to the single beige/cream background.
+- Fixed the Services card image sizing: absolute full-card images use width/height 100% and cover; the sky-blue border is on the outer card so it cannot be clipped by the image.
+- Added sky-blue frames to the primary project/gallery/3D presentation containers without changing the 3D image transforms.
+- Removed forced 100vw / per-section overflow clipping from the previous mobile patch; kept viewport horizontal overflow protection only.
+- Corrected the Before/After comparison image ratio and removed internal image borders; it now uses matched category references and finished examples (Living, Bedroom, Kitchen) with a functional slider and accurate labels.
+- Changed comparison wording to “Design & finished” / “Reference” / “Finished” because the assets are representative examples, not verified photos of the same room at two dates.
+- Preserved Firebase configuration, Firestore rules, Functions, videos, and other site assets.
+
+Validation:
+- All local asset paths referenced in the HTML were checked against the full public folder (see V34 validation report).
+- Inline JavaScript syntax was checked; the JSON-LD script is structured data, not executable JavaScript.
+- Original 3D/scroll scripts were not removed or rewritten.
+- Browser rendering against the hosted live site was not available from this local build; test on phone after deployment.
+
+Deploy from the v30 folder: firebase deploy --only hosting

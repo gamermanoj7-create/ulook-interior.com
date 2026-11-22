@@ -1,0 +1,9 @@
+ULOOK INTERIOR - V28 (14 Nov 2026)
+1. SERVICES: 6 new cards filled, 10 photos each (60 total): Cafe, Office, Bank, Banquet Hall, 2D / 3D Design, Floor. All 24 cards now open a gallery.
+2. CARDS: only the service name on the card (no descriptions, no numbers, no buttons). Cards wipe up one by one as you scroll to them; photo settles from a slight zoom; soft drift with the mouse on desktop.
+3. GALLERY: photos fill the whole screen. Scroll or swipe: one photo per step, each with a gentle depth move. No titles, captions or paragraphs. Only: photo counter, close, dots, and a small chat button (WhatsApp).
+4. REMOVED: the < > arrow buttons, the "swipe / scroll" text, the big title and caption, the old photo viewer.
+5. NO REPEATS: every one of the 240 gallery photos is a different file and a different picture (checked by image comparison). A photo can never be added to two galleries. Each gallery ends at photo 10 instead of jumping into the next category.
+6. COLOURS: browns replaced by the banner colours - navy blue, gold, cream/white.
+7. NOTE: the new photos were small (about 700 px wide). They were enlarged to 1600 px and sharpened, but they are still softer than the older 4K photos. Send bigger originals to improve them.
+TESTED (Chromium, 390px phone + 1440px desktop): 0 JS errors, no sideways scroll, all 24 galleries open. NOT TESTED: real phone. Not deployed.

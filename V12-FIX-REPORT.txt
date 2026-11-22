@@ -1,0 +1,13 @@
+ULOOK INTERIOR - V12 (13 Nov 2026)
+1. Removed ALL moving white light: photo-slider sheen (Homes/Kitchens/Commercial/Architecture), house-section sheen, kitchen video shine, clock glint, button hover shine.
+2. Removed the white radial glow behind every 3D slider (now a flat soft beige).
+3. Smoother scroll animation: easing is now time-based (same feel on 60Hz/90Hz/120Hz phones), slider glide slightly faster to catch up, no lag/jerk on fast flicks.
+4. Neighbouring photos fade out sooner, so no washed/ghost cards behind the main photo.
+5. GPU layers + lighter shadows on mobile for less jank.
+NOT CHANGED: logo intro sweep (first-load only). Tested Chromium 390px: 0 JS errors. Not tested on real phone.
+
+V13 addendum:
+6. Sliders slowed for phones: more scroll per photo, softer glide, photo rests longer in the centre.
+7. Speed cap: even a hard flick moves max ~0.85 photo/sec on phone (1.2 on desktop), so photos never rush past.
+8. Next photos preload a little ahead (no blank card). Per-slider timing fixed.
+NOTE: open the full folder/zip or the deployed site. index.html alone has no assets/ folder, so photos and fonts show blank.

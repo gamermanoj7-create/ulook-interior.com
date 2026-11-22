@@ -1,0 +1,9 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Public, read-only: synchronized Google reviews + sync status. Writes only via the Cloud Function (admin SDK).
+    match /reviews/{id} { allow read: if true; allow write: if false; }
+    match /meta/reviewsSync { allow read: if true; allow write: if false; }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

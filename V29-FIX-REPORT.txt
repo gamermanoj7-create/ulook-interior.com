@@ -1,0 +1,12 @@
+ULOOK INTERIOR - V29 (14 Nov 2026)
+1. HOUSE PHOTO: removed from hero, "Walk into your finished home", "Spaces in the wild" (and the Real Work list). Now: 4K bedroom (hero), 4K lounge (walk-in), 4K living room (first wild card). Three different photos.
+2. KITCHENS: the repeated kitchen (4 angles of one kitchen) and the rough site kitchens are removed. 14 good kitchens used, each once on the page (8 in "Kitchens we have built").
+3. REAL WORK: Part 01 (15 photos) + Part 02 (14 photos). 29 unique photos (old 38 list had house, kitchens and duplicates).
+4. CLOCK: removed from the top; the real-time clock now sits where the gear "Precision" section was. Gear section removed.
+5. COMMERCIAL: now real cafe / restaurant / office / banquet / bank photos.
+6. CARDS + GALLERY: cards show the whole photo (no crop). Full-screen gallery shows the whole photo with a blurred backdrop, no zoom crop. Kitchen/wardrobe gallery now loads light webp instead of 4-6 MB jpg.
+7. COLOURS: white + silver and beige + gold. Header bar and intro are unchanged (checked by computed styles).
+8. CROP AUDIT (390 and 1440 px): no photo is cropped, including the hero photos.
+NOT CHANGED: service photos were already enlarged to ~2688 px in V28; no extra quality can be created without bigger originals.
+NOTE: dining-area-02 has a website watermark in the photo itself - replace it.
+TESTED (Chromium 390 + 1440): 0 JS errors, no sideways scroll. NOT TESTED: real phone. Not deployed.

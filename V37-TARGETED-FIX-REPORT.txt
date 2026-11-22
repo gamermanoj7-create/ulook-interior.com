@@ -1,0 +1,26 @@
+ULOOK INTERIOR V37 — TARGETED PHOTO / 3D TEXT REFINEMENT
+======================================================
+Baseline: exact V36 full source ZIP deployed by the user.
+Scope: comparison photo crop/quality and excessive/overlapping text in 3D modules only.
+
+Changes:
+1. Living comparison now uses the package's full-resolution 4K living.webp and livingDetail.webp masters (same room, alternate views).
+2. Kitchen comparison now uses the full-resolution 4K x18.webp and x19.webp masters (same yellow/grey kitchen, alternate views).
+3. Bedroom reference uses the complete supplied bedroom photo panel only (technical elevation excluded); finished bedroom uses the full-resolution 4K p10.webp master.
+4. Comparison frame ratio follows each pair (square living/bedroom, 4:3 kitchen) and uses object-fit:contain so the full source photo remains visible without CSS cropping.
+5. Removed redundant subtitles and room labels over 3D scenes while retaining main headings, slide counters, section controls, and calls to action.
+6. Removed the fractional translate3d movement from the plan heading; its opacity fade remains.
+
+Validation:
+- All six V37 comparison assets exist and image files decode successfully.
+- Every V37 comparison URL referenced by the page resolves to a local asset.
+- 18 inline JavaScript blocks passed `node --check`; JSON-LD data block was excluded as it is not JavaScript.
+- HTML structure parsed successfully; comparison controls and V37 stylesheet are present.
+- Source package retains Firebase configuration, Cloud Functions, original content, and all existing 3D geometry/scroll scripts.
+- Full mobile Android browser visual testing was not available in this environment; user should check the deployed preview before replacing the live release.
+
+Intentionally unchanged:
+Other page sections, copy outside 3D overlays, colours, service cards, galleries, navigation, forms, Firebase config, Functions, 3D scene geometry/motion, and deployment settings.
+
+Accuracy note:
+The bedroom reference source panel is 1146 x 708 pixels; it is preserved at native resolution rather than artificially upscaled. The bedroom reference/finished pair is a matched design-reference and finished-concept pair, not proof of the same physical room before and after renovation.

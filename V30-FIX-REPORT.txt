@@ -1,0 +1,12 @@
+ULOOK INTERIOR - V30 GOOGLE REVIEWS (14 Nov 2026)
+BASE: V29 (kept intact; backup = ulook-interior-v29.zip you already have).
+ADDED: new "What Our Clients Say" section at the end of <main>, just before the footer (id google-reviews).
+ - 3D glass review cards (tilt, float, entrance), mobile swipe carousel, prev/next, keyboard arrows, Read more/less.
+ - Your video (assets/video/reviews-visual.mp4/.webm + poster) as the 3D visual; plays only while visible, muted, poster-only with reduced motion.
+ - "Write a Google Review" button -> https://share.google/UrA05OhD2aHkVb22F (new tab, noopener).
+ - States: loading skeleton, honest empty state, error + retry. No demo reviews in any file.
+ - Backend: functions/ (scheduled + manual sync), firestore.rules, firestore.indexes.json; firebase.json extended with firestore + functions (hosting settings unchanged).
+NEW FILES: functions/{index.js,reviews-core.js,package.json,test/reviews-core.test.js}, firestore.rules, firestore.indexes.json, GOOGLE-REVIEWS-SETUP.md, V30-FIX-REPORT.txt, public/assets/video/reviews-visual.{mp4,webm}, reviews-visual-poster.webp
+MODIFIED: public/index.html (3 inserted blocks only: HTML, CSS, JS; verified byte-identical to V29 otherwise), firebase.json.
+TESTED (code level): node syntax checks, sync unit tests with mock API (pass), Chromium 390/1440: 0 JS errors, no sideways scroll, section is last in main, duplicates removed, empty/error/loaded states, existing service gallery still opens (10 slides), header + intro unchanged. Mock reviews were used only inside the test script.
+NOT TESTED: live Google API, Firebase deploy, real phone.

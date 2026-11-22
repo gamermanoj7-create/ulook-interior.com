@@ -1,0 +1,3 @@
+Executable inline scripts syntax-checked: 18
+Syntax errors: 0
+JSON-LD excluded from executable JS check.

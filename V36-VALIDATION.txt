@@ -1,0 +1,11 @@
+V36 VALIDATION
+=============
+Architecture carousel: 8 photo slides; counter /08.
+Measured-facade photo: mapping removed, HTML/JS reference absent, asset file removed.
+Services cards: 24 cards retained.
+Comparison images: 6/6 files present; 4:3 output crops.
+Duplicate HTML IDs: 0.
+Inline JavaScript syntax: 18 blocks checked; 0 failures.
+JSON-LD: 1 block(s) parsed successfully.
+Missing static/local asset references: 0.
+Firebase hosting public directory: public.

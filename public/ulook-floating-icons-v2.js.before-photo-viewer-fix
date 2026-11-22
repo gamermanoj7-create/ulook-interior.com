@@ -1,0 +1,96 @@
+/* ULOOK Interior floating contact buttons — isolated transparent v2 */
+(function () {
+  'use strict';
+  if (window.__ulookFloatingIconsV2) return;
+  window.__ulookFloatingIconsV2 = true;
+
+  var WA_URL = 'https://wa.me/919073615965?text=Hello%20ULOOK%20INTERIOR%2C%20I%20would%20like%20to%20discuss%20an%20interior%20project.';
+  var CALL_URL = 'tel:+919073615965';
+  var WA_IMAGE = '/assets/call-3d-silver-green.png';
+  var CALL_IMAGE = '/assets/whatsapp-3d-gold-cyan.png';
+
+  function hideOldButtons() {
+    document.querySelectorAll('a.callfab, a.wa').forEach(function (a) {
+      a.setAttribute('aria-hidden', 'true');
+      a.style.setProperty('display', 'none', 'important');
+      a.style.setProperty('visibility', 'hidden', 'important');
+      a.style.setProperty('pointer-events', 'none', 'important');
+    });
+  }
+
+  function addButton(container, href, imagePath, label, className, external) {
+    var link = document.createElement('a');
+    link.className = 'ulook-float-v2-link ' + className;
+    link.href = href;
+    link.setAttribute('aria-label', label);
+    if (external) {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    }
+
+    var img = document.createElement('img');
+    img.src = imagePath;
+    img.alt = '';
+    img.draggable = false;
+    img.decoding = 'async';
+    link.appendChild(img);
+    container.appendChild(link);
+  }
+
+  function mount() {
+    if (!document.body || document.getElementById('ulook-floating-icons-v2')) return;
+    hideOldButtons();
+
+    var style = document.createElement('style');
+    style.id = 'ulook-floating-icons-v2-style';
+    style.textContent = [
+      '#ulook-floating-icons-v2{position:fixed!important;right:max(12px,env(safe-area-inset-right))!important;bottom:max(14px,env(safe-area-inset-bottom))!important;z-index:2147483000!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important;width:auto!important;height:auto!important;min-width:0!important;min-height:0!important;margin:0!important;padding:0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;filter:none!important;transform:none!important;pointer-events:none!important}',
+      '#ulook-floating-icons-v2 .ulook-float-v2-link{display:block!important;position:relative!important;flex:0 0 76px!important;width:76px!important;height:76px!important;min-width:76px!important;min-height:76px!important;max-width:76px!important;max-height:76px!important;box-sizing:border-box!important;margin:0!important;padding:0!important;background:transparent!important;background-color:transparent!important;border:0!important;border-radius:0!important;outline:0!important;box-shadow:none!important;text-decoration:none!important;line-height:0!important;overflow:visible!important;transform:none!important;filter:none!important;-webkit-tap-highlight-color:transparent!important;pointer-events:auto!important}',
+      '#ulook-floating-icons-v2 .ulook-float-v2-link img{display:block!important;width:76px!important;height:76px!important;max-width:76px!important;max-height:76px!important;object-fit:contain!important;object-position:center!important;margin:0!important;padding:0!important;background:transparent!important;background-color:transparent!important;border:0!important;border-radius:0!important;outline:0!important;box-shadow:none!important;filter:none!important}',
+      '@media(max-width:380px){#ulook-floating-icons-v2 .ulook-float-v2-link,#ulook-floating-icons-v2 .ulook-float-v2-link img{width:68px!important;height:68px!important;min-width:68px!important;min-height:68px!important;max-width:68px!important;max-height:68px!important;flex-basis:68px!important}}'
+    ].join('\n');
+    document.head.appendChild(style);
+
+    var container = document.createElement('div');
+    container.id = 'ulook-floating-icons-v2';
+    container.setAttribute('aria-label', 'Contact ULOOK Interior');
+    addButton(container, CALL_URL, CALL_IMAGE, 'Call ULOOK Interior', 'ulook-float-v2-call', false);
+    addButton(container, WA_URL, WA_IMAGE, 'Chat with ULOOK Interior on WhatsApp', 'ulook-float-v2-whatsapp', true);
+    document.body.appendChild(container);
+
+    // Hide floating contact buttons while the service photo gallery is open.
+    var gallery = document.getElementById('serviceGalleryModal');
+
+    function syncGalleryButtons() {
+      var galleryOpen = !!gallery && (
+        gallery.classList.contains('is-open') ||
+        gallery.getAttribute('aria-hidden') === 'false'
+      );
+
+      if (galleryOpen) {
+        container.style.setProperty('display', 'none', 'important');
+        container.setAttribute('aria-hidden', 'true');
+      } else {
+        container.style.removeProperty('display');
+        container.removeAttribute('aria-hidden');
+      }
+    }
+
+    if (gallery) {
+      syncGalleryButtons();
+
+      var galleryObserver = new MutationObserver(syncGalleryButtons);
+      galleryObserver.observe(gallery, {
+        attributes: true,
+        attributeFilter: ['class', 'aria-hidden']
+      });
+    }
+
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', mount, { once: true });
+  } else {
+    mount();
+  }
+})();

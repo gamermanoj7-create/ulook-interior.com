@@ -1,0 +1,10 @@
+ULOOK INTERIOR — V32 FULL WEBSITE PACKAGE
+Base source: uploaded ULOOK INTERIOR V31 full ZIP (v30 project directory)
+Updates:
+- Added four distinct generated luxury kitchen images to the modular-kitchen gallery assets (kitchen-01.webp through kitchen-04.webp).
+- Updated matching high-resolution JPG kitchen assets.
+- Added V32 palette overrides: beige/cream page backgrounds, golden text accents, and sky-blue image/card borders.
+- Preserved the existing website structure, Firebase configuration, functions, original media, and all other project assets.
+Notes:
+- This package contains the complete extracted project, not only a patch.
+- Review the visual theme on desktop and mobile before publishing; some existing dark video/media content may retain its own embedded colors.

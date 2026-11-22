@@ -1,0 +1,133 @@
+ULOOK INTERIOR — V27 GALLERY PHOTO CHECK
+Base: V26 smooth mobile gallery
+
+Active photo galleries (10 separate images each):
+- Modular Kitchen: 10 photos
+- Wardrobe: 10 photos
+- TV Unit: 10 photos
+- Living Area: 10 photos
+- Dining Area: 10 photos
+- Sofa: 10 photos
+- Bathroom: 10 photos
+- Balcony: 10 photos
+- PVC Window: 10 photos
+- Painting: 10 photos
+- Wallpaper: 10 photos
+- False Ceiling: 10 photos
+- PVC Door: 10 photos
+- Marble Work: 10 photos
+- Tiles Work: 10 photos
+- Rooftop: 10 photos
+- Commercial Work: 10 photos
+- Restaurant: 10 photos
+- Total active galleries: 18
+- Total active gallery photos: 180
+- Exact duplicate check: 0 duplicate SHA-256 files across the 180 selected photos.
+- Visual-similarity check: no selected pair had perceptual-hash distance <= 5.
+- New uploaded photographs were converted to WebP quality 92, retaining original source dimensions; no fake 4K upscaling was applied.
+- Gallery behavior: finite 10-photo sets; after photo 10, the next completed category opens automatically; after the last completed category, the gallery closes.
+- Mobile behavior: swipe or scroll moves to the next photo; only the immediate next photo is preloaded to limit memory and network use.
+- No-upload galleries intentionally disabled until photos are supplied: Cafe, Office, Bank, Banquet Hall, 2D / 3D Design, Floor Planning.
+- Original landing intro/logo animation, main page sections, videos, and other assets were preserved from V26.
+
+NEW UPLOAD FILE INVENTORY (source dimensions and encoded WebP file size):
+Bathroom #01: 1024x1536, 154 KB, SHA256 65fd6e0ca43c34e0, assets/services/bathroom/bathroom-01.webp
+Bathroom #02: 1152x1536, 206 KB, SHA256 dbffdaa6e64d4d40, assets/services/bathroom/bathroom-02.webp
+Bathroom #03: 1024x1536, 157 KB, SHA256 6942c1f2bf14821e, assets/services/bathroom/bathroom-03.webp
+Bathroom #04: 1024x1536, 298 KB, SHA256 a2bc9d8136deb554, assets/services/bathroom/bathroom-04.webp
+Bathroom #05: 1049x1536, 193 KB, SHA256 730b443aa7d486ee, assets/services/bathroom/bathroom-05.webp
+Bathroom #06: 1229x1536, 128 KB, SHA256 980bb5c4f8efb52d, assets/services/bathroom/bathroom-06.webp
+Bathroom #07: 1024x1536, 169 KB, SHA256 b5ca3c7fe2b7dc94, assets/services/bathroom/bathroom-07.webp
+Bathroom #08: 1024x1536, 184 KB, SHA256 92e0da19514e0ec8, assets/services/bathroom/bathroom-08.webp
+Bathroom #09: 864x1536, 114 KB, SHA256 53fd8620dedc7f6f, assets/services/bathroom/bathroom-09.webp
+Bathroom #10: 1025x1536, 122 KB, SHA256 d0da5e63bb6814fe, assets/services/bathroom/bathroom-10.webp
+Balcony #01: 1024x1536, 96 KB, SHA256 a224e8cc3a428ed4, assets/services/balcony/balcony-01.webp
+Balcony #02: 1024x1536, 159 KB, SHA256 92eff195f4b3a161, assets/services/balcony/balcony-02.webp
+Balcony #03: 1022x1536, 196 KB, SHA256 6cfc1f806b8e51e0, assets/services/balcony/balcony-03.webp
+Balcony #04: 1132x1536, 158 KB, SHA256 1b054e4dfe5d4d33, assets/services/balcony/balcony-04.webp
+Balcony #05: 858x1536, 206 KB, SHA256 6404c4481df432f2, assets/services/balcony/balcony-05.webp
+Balcony #06: 1024x1536, 162 KB, SHA256 453fcf619b3db9c9, assets/services/balcony/balcony-06.webp
+Balcony #07: 1237x1536, 182 KB, SHA256 7e837112610ca016, assets/services/balcony/balcony-07.webp
+Balcony #08: 1024x1536, 160 KB, SHA256 8b4d8e4099040565, assets/services/balcony/balcony-08.webp
+Balcony #09: 1076x1536, 123 KB, SHA256 f50745a683e342ed, assets/services/balcony/balcony-09.webp
+Balcony #10: 865x1536, 165 KB, SHA256 166d09b5730ac519, assets/services/balcony/balcony-10.webp
+Wallpaper #01: 864x1536, 111 KB, SHA256 d41cfb5074fcfec8, assets/services/wallpaper/wallpaper-01.webp
+Wallpaper #02: 722x1536, 85 KB, SHA256 b1b3200b7d7fcda3, assets/services/wallpaper/wallpaper-02.webp
+Wallpaper #03: 687x1536, 76 KB, SHA256 49e8f2a251694537, assets/services/wallpaper/wallpaper-03.webp
+Wallpaper #04: 693x1536, 135 KB, SHA256 0a0b2eb539836994, assets/services/wallpaper/wallpaper-04.webp
+Wallpaper #05: 737x1536, 52 KB, SHA256 73359bf8c40d7e70, assets/services/wallpaper/wallpaper-05.webp
+Wallpaper #06: 778x1536, 60 KB, SHA256 9edc8fd0d6be3fa5, assets/services/wallpaper/wallpaper-06.webp
+Wallpaper #07: 708x1536, 62 KB, SHA256 bcb05a4d0fa7dfc6, assets/services/wallpaper/wallpaper-07.webp
+Wallpaper #08: 1050x1536, 231 KB, SHA256 7c67957c4ac5eddd, assets/services/wallpaper/wallpaper-08.webp
+Wallpaper #09: 722x1536, 75 KB, SHA256 fe0e8bb08b1bc068, assets/services/wallpaper/wallpaper-09.webp
+Wallpaper #10: 864x1536, 72 KB, SHA256 4bbfa6d1d633c042, assets/services/wallpaper/wallpaper-10.webp
+False Ceiling #01: 1031x1536, 141 KB, SHA256 3c989a9e74e80a27, assets/services/false-ceiling/false-ceiling-01.webp
+False Ceiling #02: 1024x1536, 152 KB, SHA256 cf24cb205d89ee2c, assets/services/false-ceiling/false-ceiling-02.webp
+False Ceiling #03: 823x1536, 59 KB, SHA256 ab03ca09ee049adf, assets/services/false-ceiling/false-ceiling-03.webp
+False Ceiling #04: 838x1536, 87 KB, SHA256 8ca26ebb2c487f3c, assets/services/false-ceiling/false-ceiling-04.webp
+False Ceiling #05: 922x1536, 109 KB, SHA256 8b712e67c3de0d78, assets/services/false-ceiling/false-ceiling-05.webp
+False Ceiling #06: 1024x1536, 66 KB, SHA256 6db20bf3d201cbb9, assets/services/false-ceiling/false-ceiling-06.webp
+False Ceiling #07: 1052x1536, 220 KB, SHA256 c184440877861e35, assets/services/false-ceiling/false-ceiling-07.webp
+False Ceiling #08: 864x1536, 71 KB, SHA256 c0c4675c7e868de6, assets/services/false-ceiling/false-ceiling-08.webp
+False Ceiling #09: 865x1536, 137 KB, SHA256 8d1bd38e12a1f8a5, assets/services/false-ceiling/false-ceiling-09.webp
+False Ceiling #10: 1024x1536, 116 KB, SHA256 e844ab0858b27b94, assets/services/false-ceiling/false-ceiling-10.webp
+PVC Door #01: 1024x1536, 268 KB, SHA256 6f256808dc0d894d, assets/services/pvc-door/pvc-door-01.webp
+PVC Door #02: 1024x1536, 171 KB, SHA256 8675b8ddf5968cf0, assets/services/pvc-door/pvc-door-02.webp
+PVC Door #03: 1022x1536, 135 KB, SHA256 ad0feae6633db778, assets/services/pvc-door/pvc-door-03.webp
+PVC Door #04: 1024x1536, 67 KB, SHA256 684f3b5f9a59a14b, assets/services/pvc-door/pvc-door-04.webp
+PVC Door #05: 1024x1536, 118 KB, SHA256 a109e3e7d67ff314, assets/services/pvc-door/pvc-door-05.webp
+PVC Door #06: 1536x1534, 98 KB, SHA256 a27ca91f74c3679a, assets/services/pvc-door/pvc-door-06.webp
+PVC Door #07: 1023x1536, 44 KB, SHA256 a1c48e4f3745752a, assets/services/pvc-door/pvc-door-07.webp
+PVC Door #08: 1152x1536, 118 KB, SHA256 7cc27af630ecb2fc, assets/services/pvc-door/pvc-door-08.webp
+PVC Door #09: 1228x1536, 116 KB, SHA256 5903417e1e75b9c7, assets/services/pvc-door/pvc-door-09.webp
+PVC Door #10: 1228x1536, 123 KB, SHA256 9604b7c1cc7225cb, assets/services/pvc-door/pvc-door-10.webp
+Tiles Work #01: 1024x1536, 138 KB, SHA256 6ed171b97fe8d63f, assets/services/tiles-work/tiles-work-01.webp
+Tiles Work #02: 768x1536, 164 KB, SHA256 7a81b0775d125114, assets/services/tiles-work/tiles-work-02.webp
+Tiles Work #03: 1152x1536, 199 KB, SHA256 9a3905a157726ef3, assets/services/tiles-work/tiles-work-03.webp
+Tiles Work #04: 864x1536, 102 KB, SHA256 ce3f369728c461bd, assets/services/tiles-work/tiles-work-04.webp
+Tiles Work #05: 875x1536, 125 KB, SHA256 7c3a5720cc71fa00, assets/services/tiles-work/tiles-work-05.webp
+Tiles Work #06: 1536x1536, 299 KB, SHA256 ec79b08685629fad, assets/services/tiles-work/tiles-work-06.webp
+Tiles Work #07: 1024x1536, 185 KB, SHA256 d23933eeffd52b8c, assets/services/tiles-work/tiles-work-07.webp
+Tiles Work #08: 1024x1536, 222 KB, SHA256 8b6533efa398235f, assets/services/tiles-work/tiles-work-08.webp
+Tiles Work #09: 1024x1536, 210 KB, SHA256 f64f4333fa0afb7b, assets/services/tiles-work/tiles-work-09.webp
+Tiles Work #10: 865x1536, 109 KB, SHA256 61220a9ab49ec7b8, assets/services/tiles-work/tiles-work-10.webp
+Marble Work #01: 1244x1536, 151 KB, SHA256 575cb8e340143912, assets/services/marble-work/marble-work-01.webp
+Marble Work #02: 864x1536, 175 KB, SHA256 2fdfc500ebe73383, assets/services/marble-work/marble-work-02.webp
+Marble Work #03: 1151x1536, 164 KB, SHA256 2d588fd84ba10704, assets/services/marble-work/marble-work-03.webp
+Marble Work #04: 1195x1536, 127 KB, SHA256 faf623ba18c6fda4, assets/services/marble-work/marble-work-04.webp
+Marble Work #05: 1024x1536, 204 KB, SHA256 1d41986ed4788cba, assets/services/marble-work/marble-work-05.webp
+Marble Work #06: 864x1536, 184 KB, SHA256 9ef30e5b3e4beac5, assets/services/marble-work/marble-work-06.webp
+Marble Work #07: 1024x1536, 172 KB, SHA256 a45c0e464a3a7058, assets/services/marble-work/marble-work-07.webp
+Marble Work #08: 865x1536, 217 KB, SHA256 c83c216927d9e7f5, assets/services/marble-work/marble-work-08.webp
+Marble Work #09: 864x1536, 165 KB, SHA256 b2162c09d9fbf2d9, assets/services/marble-work/marble-work-09.webp
+Marble Work #10: 862x1536, 193 KB, SHA256 4b349d9ee11d3c71, assets/services/marble-work/marble-work-10.webp
+Rooftop #01: 1536x1206, 115 KB, SHA256 1e5af8ddbbc0ba4d, assets/services/rooftop/rooftop-01.webp
+Rooftop #02: 1536x1438, 246 KB, SHA256 56c299614dc95e05, assets/services/rooftop/rooftop-02.webp
+Rooftop #03: 1024x1536, 293 KB, SHA256 dd9a170bb313ed6b, assets/services/rooftop/rooftop-03.webp
+Rooftop #04: 1536x1536, 251 KB, SHA256 3c395c54cf97a081, assets/services/rooftop/rooftop-04.webp
+Rooftop #05: 912x1536, 154 KB, SHA256 3a72775c35a48c90, assets/services/rooftop/rooftop-05.webp
+Rooftop #06: 1024x1536, 262 KB, SHA256 92cd2bb51a46cf40, assets/services/rooftop/rooftop-06.webp
+Rooftop #07: 1024x1536, 137 KB, SHA256 f03d709f01689a62, assets/services/rooftop/rooftop-07.webp
+Rooftop #08: 1024x1536, 179 KB, SHA256 017b3c223a283a38, assets/services/rooftop/rooftop-08.webp
+Rooftop #09: 862x1536, 213 KB, SHA256 13f4c8dfb1f5853d, assets/services/rooftop/rooftop-09.webp
+Rooftop #10: 1152x1536, 154 KB, SHA256 2ce8f7ec98b8e22c, assets/services/rooftop/rooftop-10.webp
+Commercial Work #01: 1024x1536, 162 KB, SHA256 ec8d38b0f2d33155, assets/services/commercial-work/commercial-work-01.webp
+Commercial Work #02: 864x1536, 185 KB, SHA256 88539b1938948a59, assets/services/commercial-work/commercial-work-02.webp
+Commercial Work #03: 864x1536, 205 KB, SHA256 cc50df47ee54a122, assets/services/commercial-work/commercial-work-03.webp
+Commercial Work #04: 865x1536, 200 KB, SHA256 5f0fb60016de58e2, assets/services/commercial-work/commercial-work-04.webp
+Commercial Work #05: 1024x1536, 188 KB, SHA256 2002610ac206107e, assets/services/commercial-work/commercial-work-05.webp
+Commercial Work #06: 864x1536, 99 KB, SHA256 bf049cc27619f674, assets/services/commercial-work/commercial-work-06.webp
+Commercial Work #07: 1024x1536, 265 KB, SHA256 f1861194ee1eec3f, assets/services/commercial-work/commercial-work-07.webp
+Commercial Work #08: 864x1536, 138 KB, SHA256 3ae3e40c8f726e14, assets/services/commercial-work/commercial-work-08.webp
+Commercial Work #09: 1160x1536, 152 KB, SHA256 e5f282e6d651328a, assets/services/commercial-work/commercial-work-09.webp
+Commercial Work #10: 1024x1536, 213 KB, SHA256 92971686b518ffc0, assets/services/commercial-work/commercial-work-10.webp
+Restaurant #01: 1024x1536, 246 KB, SHA256 dfd83bc7927af77a, assets/services/restaurant/restaurant-01.webp
+Restaurant #02: 1536x1536, 264 KB, SHA256 262b5f36cb2669a3, assets/services/restaurant/restaurant-02.webp
+Restaurant #03: 1229x1536, 169 KB, SHA256 a373f5a3014fa1ac, assets/services/restaurant/restaurant-03.webp
+Restaurant #04: 1314x1536, 272 KB, SHA256 6ed3d01c3f823174, assets/services/restaurant/restaurant-04.webp
+Restaurant #05: 1152x1536, 199 KB, SHA256 a724504b375c3637, assets/services/restaurant/restaurant-05.webp
+Restaurant #06: 1536x1536, 447 KB, SHA256 cb57b0701514fd6d, assets/services/restaurant/restaurant-06.webp
+Restaurant #07: 1536x1536, 252 KB, SHA256 707e500aa7259b37, assets/services/restaurant/restaurant-07.webp
+Restaurant #08: 864x1536, 113 KB, SHA256 9130f396a41629b6, assets/services/restaurant/restaurant-08.webp
+Restaurant #09: 871x1536, 180 KB, SHA256 ecae30f1f56606f1, assets/services/restaurant/restaurant-09.webp
+Restaurant #10: 864x1536, 134 KB, SHA256 4dfa4b4aa53cdbde, assets/services/restaurant/restaurant-10.webp

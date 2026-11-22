@@ -1,0 +1,32 @@
+ULOOK INTERIOR — V38 PHOTO LOADING & COMPARISON REPAIR
+====================================================
+Baseline: ULOOK-Interior-V37-Targeted-Fix.zip supplied in this conversation.
+Scope: repair only the existing room comparison image mapping/loading, photo display consistency, and Services-card image sharpness/loading. No Firebase deployment performed.
+
+ROOT CAUSE FOUND
+1. The initial comparison HTML still pointed at V36 living-room assets, while the tab controller used V37 assets. A browser retaining an older page/asset could therefore show stale comparison imagery.
+2. The comparison CSS had accumulated conflicting aspect-ratio/object-fit rules (4:3, square/room-specific, contain/cover). This caused inconsistent frame presentation and apparent cropping/letterboxing across rooms.
+3. Services cards requested full-size source photos even though the cards display them at much smaller responsive sizes; this wasted bandwidth and could delay visible images. Tiny image transforms also softened the card images slightly.
+
+CHANGES
+1. Created six V38 comparison delivery images (Living Room, Bedroom, Kitchen; Reference and Finished) at a consistent 1600x1200 4:3 canvas. Each complete source photo is fitted inside the canvas on the existing cream background; no source photo content is cropped.
+2. The Bedroom Reference is the photo-only bedroom panel from the V37 source (not the lower technical elevation drawing). The Bedroom Finished uses its corresponding finished-bedroom concept image.
+3. Replaced the comparison controller with a V38 versioned image map. Each room has its own explicit reference/finished paths. Images load and decode in parallel before both sides are swapped, preventing mixed-room pairs and avoiding stale V36 cached assets. Rapid tab changes ignore stale pending loads.
+4. Initial Living Room comparison markup now points directly to V38 assets and begins loading immediately. Comparison frame is consistently 4:3 on desktop and mobile.
+5. Generated responsive 600px/1200px WebP thumbnails for the 24 Services cards. Cards use srcset/sizes and lazy decoding; the full-resolution gallery source files remain untouched.
+6. Removed image transforms/filters from Services-card thumbnails to avoid unnecessary softness. Existing card layout, colours, text, links, gallery data, 3D geometry, animations, navigation, forms and Firebase configuration remain unchanged.
+
+VALIDATION
+- 18 inline JavaScript blocks passed `node --check`; JSON-LD data block parsed as JSON.
+- HTML parsed successfully with Python HTMLParser.
+- All local src/href/poster/srcset asset references checked: 0 missing.
+- All six V38 comparison images decoded successfully and are 1600x1200.
+- All 24 Services cards have existing 600px and 1200px thumbnail candidates (48 files total).
+- Comparison controller contains explicit independent Living Room, Bedroom and Kitchen pairs; no V36 bedroom path remains in the active V38 controller.
+- Comparison image payload reduced from about 1.6 MiB to about 0.55 MiB.
+- Services-card first-image payload reduced from about 7.11 MiB to about 3.85 MiB across the 24 card thumbnails (responsive browser selection may download only one candidate per card).
+
+LIMITATIONS
+- Full Android-device visual and network-throttled performance testing could not be completed in this environment. A local headless Chromium attempt timed out; this is an environment limitation, not a passing browser test.
+- The bedroom reference is a photo-only design reference paired with a finished bedroom concept; source material does not establish that both are photographs of the same physical room before and after renovation.
+- No live website deployment, Firebase release change, or Firebase configuration change was performed.

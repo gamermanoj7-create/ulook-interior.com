@@ -1,0 +1,10 @@
+
+V23 FOUR SERVICE GALLERIES
+- Kept V22 as the base so previous Modular Kitchen and Wardrobe galleries remain unchanged.
+- Modular Kitchen: existing 10-photo gallery retained.
+- Wardrobe: existing 10-photo gallery retained.
+- TV Unit: replaced with the 10 user-supplied TV Unit photos.
+- Living Area: replaced with the 10 user-supplied Living Area photos.
+- New photos optimized to WebP while preserving the full image composition (no cropping).
+- Updated the TV Unit and Living Area card cover images and their gallery image lists.
+- Other service galleries, intro, animations and website sections were left untouched.
