@@ -6,7 +6,7 @@
 
   var WA_URL = 'https://wa.me/919073615965?text=Hello%20ULOOK%20INTERIOR%2C%20I%20would%20like%20to%20discuss%20an%20interior%20project.';
   var CALL_URL = 'tel:+919073615965';
-  var WA_IMAGE = '/assets/whatsapp-3d-gold-cyan.png';
+  var WA_IMAGE = '/assets/whatsapp-3d-gold-cyan.webp';
   var CALL_IMAGE = '/assets/call-3d-silver-green.webp';
 
   function hideOldButtons() {
