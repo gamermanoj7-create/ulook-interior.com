@@ -13437,84 +13437,95 @@ footer .ulook-social-link.instagram .ulook-social-icon img{
 </style>
 
 
-<script id="ulook-hero-number-countup-v1">
+<script id="ulook-hero-number-countup-v2">
 (function () {
   "use strict";
-  const section = document.querySelector("#home");
-  const stats = document.querySelector("#home #hjCopyOne .hj-trust");
-  if (!section || !stats) return;
 
-  const numbers = Array.from(stats.querySelectorAll(":scope > span > b"));
-  if (numbers.length !== 5) {
-    console.warn("ULOOK count-up: Expected five hero numbers.");
-    return;
-  }
+  function initCountUp() {
+    const stats = document.querySelector("#home #hjCopyOne .hj-trust");
+    if (!stats || stats.dataset.countupInit === "1") return;
 
-  const items = numbers.map(el => {
-    const original = el.textContent.trim();
-    const match = original.match(/^([0-9]+(?:\.[0-9]+)?)(.*)$/);
-    if (!match) return null;
-    return {
-      el,
-      target: Number(match[1]),
-      suffix: match[2],
-      decimals: (match[1].split(".")[1] || "").length
-    };
-  });
-
-  if (items.some(item => !item)) return;
-
-  const finalValues = items.map(item => item.el.textContent);
-  const reduced = window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  function animate() {
-    if (stats.dataset.countupDone === "1") return;
-    stats.dataset.countupDone = "1";
-
-    if (reduced) return;
-
-    const duration = 2300;
-    const start = performance.now();
-
-    items.forEach(item => {
-      item.el.textContent = "0" + item.suffix;
-    });
-
-    function frame(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 4);
-
-      items.forEach(item => {
-        const value = item.target * eased;
-        const shown = item.decimals
-          ? value.toFixed(item.decimals)
-          : Math.floor(value).toString();
-        item.el.textContent = shown + item.suffix;
-      });
-
-      if (progress < 1) {
-        requestAnimationFrame(frame);
-      } else {
-        items.forEach((item, i) => {
-          item.el.textContent = finalValues[i];
-        });
-      }
+    const numbers = Array.from(stats.querySelectorAll(":scope > span > b"));
+    if (numbers.length !== 5) {
+      console.warn("ULOOK count-up: Expected 5 numbers, found", numbers.length);
+      return;
     }
 
-    requestAnimationFrame(frame);
+    const items = numbers.map(el => {
+      const original = el.textContent.trim();
+      const match = original.match(/^([0-9]+(?:\.[0-9]+)?)(.*)$/);
+      if (!match) return null;
+      return {
+        el,
+        target: Number(match[1]),
+        suffix: match[2],
+        decimals: (match[1].split(".")[1] || "").length,
+        final: original
+      };
+    });
+
+    if (items.some(item => !item)) return;
+    stats.dataset.countupInit = "1";
+
+    let started = false;
+
+    function animate() {
+      if (started) return;
+      started = true;
+      stats.dataset.countupDone = "1";
+
+      const duration = 2400;
+      const startTime = performance.now();
+
+      items.forEach(item => {
+        item.el.textContent = "0" + item.suffix;
+      });
+
+      function frame(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 4);
+
+        items.forEach(item => {
+          const value = item.target * eased;
+          const shown = item.decimals
+            ? value.toFixed(item.decimals)
+            : Math.floor(value).toString();
+
+          item.el.textContent = shown + item.suffix;
+        });
+
+        if (progress < 1) {
+          requestAnimationFrame(frame);
+        } else {
+          items.forEach(item => {
+            item.el.textContent = item.final;
+          });
+        }
+      }
+
+      requestAnimationFrame(frame);
+    }
+
+    // Start on initial page load without depending on section intersection.
+    requestAnimationFrame(() => requestAnimationFrame(animate));
+
+    // Also supports returning to the page at a saved scroll position.
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+          animate();
+          observer.disconnect();
+        }
+      }, { threshold: 0.01, rootMargin: "0px 0px 100px 0px" });
+
+      observer.observe(stats);
+    }
   }
 
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(entries => {
-      if (entries.some(entry => entry.isIntersecting)) {
-        observer.disconnect();
-        animate();
-      }
-    }, { threshold: 0.15 });
-    observer.observe(section);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCountUp, { once: true });
   } else {
-    animate();
+    initCountUp();
   }
 })();
 </script>
