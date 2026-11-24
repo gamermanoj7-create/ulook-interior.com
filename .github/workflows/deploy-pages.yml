@@ -3,7 +3,7 @@ name: Deploy ULOOK Interior to GitHub Pages
 on:
   push:
     branches:
-      - v40-upload
+      - media-performance-fix
   workflow_dispatch:
 
 permissions:
