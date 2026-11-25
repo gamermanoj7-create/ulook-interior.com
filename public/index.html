@@ -13659,13 +13659,24 @@ footer .company-terms-group > .footer-terms-link:focus-visible {
 <style id="ulook-gallery-grid-view-inside-v1">
 /* Aligned gallery grid: desktop 3 columns, mobile 2 columns */
 #gallery .masonry {
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  --gallery-gap: clamp(10px, 1.5vw, 18px);
+  display: flex !important;
+  flex-flow: row nowrap !important;
   align-items: stretch !important;
-  gap: clamp(10px, 1.5vw, 18px) !important;
+  gap: var(--gallery-gap) !important;
+  width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x mandatory !important;
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
   columns: initial !important;
   column-count: initial !important;
   column-gap: 0 !important;
+}
+#gallery .masonry::-webkit-scrollbar {
+  display: none !important;
 }
 
 #gallery .masonry > button {
@@ -13673,6 +13684,8 @@ footer .company-terms-group > .footer-terms-link:focus-visible {
   position: relative !important;
   width: 100% !important;
   min-width: 0 !important;
+  flex: 0 0 calc((100% - 2 * var(--gallery-gap)) / 3) !important;
+  scroll-snap-align: start !important;
   aspect-ratio: 4 / 3 !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -13793,13 +13806,22 @@ footer .company-terms-group > .footer-terms-link:focus-visible {
 
 @media (max-width:900px) {
   #gallery .masonry {
-    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
-    gap: 10px !important;
+    --gallery-gap: 10px;
+    gap: var(--gallery-gap) !important;
+  }
+  #gallery .masonry > button {
+    flex-basis: calc((100% - var(--gallery-gap)) / 2) !important;
   }
 }
 
 @media (max-width:380px) {
-  #gallery .masonry { gap: 8px !important; }
+  #gallery .masonry {
+    --gallery-gap: 8px;
+    gap: var(--gallery-gap) !important;
+  }
+  #gallery .masonry > button {
+    flex-basis: calc((100% - var(--gallery-gap)) / 2) !important;
+  }
   #gallery .gallery-cta {
     left: 7px !important;
     right: 7px !important;
