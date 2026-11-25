@@ -13437,92 +13437,159 @@ footer .ulook-social-link.instagram .ulook-social-icon img{
 </style>
 
 
-<script id="ulook-hero-number-countup-v3">
+<script id="ulook-hero-number-countup-v4">
 (function () {
   "use strict";
 
-  function startHeroCountUp() {
-    const copy = document.getElementById("hjCopyOne");
-    const stats = copy && copy.querySelector(".hj-trust");
+  var stats = null;
+  var started = false;
+  var observer = null;
+  var poll = null;
+  var attempts = 0;
 
-    if (!stats || stats.dataset.countupV3 === "done") return false;
+  function findStats() {
+    return document.querySelector("#hjCopyOne .hj-trust");
+  }
 
-    const numbers = Array.from(stats.querySelectorAll("b"));
-    if (numbers.length !== 5) {
-      console.warn("ULOOK count-up: expected 5 numbers, found", numbers.length);
-      return false;
+  function visible(el) {
+    if (!el) return false;
+    var r = el.getBoundingClientRect();
+    var h = window.innerHeight || document.documentElement.clientHeight;
+    if (r.width <= 0 || r.height <= 0 || r.bottom <= 0 || r.top >= h) return false;
+
+    for (var n = el; n && n.nodeType === 1; n = n.parentElement) {
+      var c = getComputedStyle(n);
+      if (c.display === "none" || c.visibility === "hidden" || Number(c.opacity) < 0.04) return false;
+    }
+    return true;
+  }
+
+  function clock() {
+    return window.performance && performance.now ? performance.now() : Date.now();
+  }
+
+  function start() {
+    if (started || !stats || !visible(stats)) return;
+
+    var nodes = Array.from(stats.querySelectorAll("b"));
+    if (nodes.length !== 5) {
+      console.warn("ULOOK Count-Up V4: expected 5 numbers; found", nodes.length);
+      return;
     }
 
-    const items = numbers.map(el => {
-      const finalText = el.textContent.trim();
-      const match = finalText.match(/^(\d+(?:\.\d+)?)(.*)$/);
-      if (!match) return null;
+    var items = nodes.map(function (el) {
+      var original = el.textContent.trim();
+      var m = original.match(/^(\d+(?:\.\d+)?)(.*)$/);
+      if (!m) return null;
       return {
         el: el,
-        target: Number(match[1]),
-        suffix: match[2],
-        decimals: (match[1].split(".")[1] || "").length,
-        finalText: finalText
+        target: Number(m[1]),
+        suffix: m[2],
+        decimals: (m[1].split(".")[1] || "").length,
+        finalText: original
       };
     });
 
-    if (items.some(item => !item)) return false;
+    if (items.some(function (x) { return !x; })) {
+      console.error("ULOOK Count-Up V4: invalid statistic text");
+      return;
+    }
 
-    stats.dataset.countupV3 = "done";
+    started = true;
+    stats.dataset.countupV4 = "started";
 
-    const duration = 2600;
-    const startTime = performance.now();
+    if (observer) observer.disconnect();
+    if (poll) clearInterval(poll);
+    window.removeEventListener("scroll", check);
+    window.removeEventListener("resize", check);
 
-    items.forEach(item => {
+    var startTime = clock();
+    var duration = 2600;
+
+    function raf(fn) {
+      if (window.requestAnimationFrame) {
+        window.requestAnimationFrame(fn);
+      } else {
+        window.setTimeout(function () { fn(clock()); }, 16);
+      }
+    }
+
+    items.forEach(function (item) {
       item.el.textContent = "0" + item.suffix;
     });
 
-    function animate(now) {
-      const progress = Math.min((now - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 4);
+    function frame(now) {
+      var progress = Math.min((now - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 4);
 
-      items.forEach(item => {
-        const value = item.target * eased;
-        const number = item.decimals
-          ? value.toFixed(item.decimals)
-          : String(Math.floor(value));
+      items.forEach(function (item) {
+        var value = item.target * eased;
+        var number = item.decimals ? value.toFixed(item.decimals) : String(Math.floor(value));
         item.el.textContent = number + item.suffix;
       });
 
       if (progress < 1) {
-        requestAnimationFrame(animate);
+        raf(frame);
       } else {
-        items.forEach(item => {
+        items.forEach(function (item) {
           item.el.textContent = item.finalText;
         });
+        stats.dataset.countupV4 = "done";
+        console.info("ULOOK Count-Up V4 completed");
       }
     }
 
-    requestAnimationFrame(animate);
-    console.info("ULOOK count-up: homepage animation started");
-    return true;
+    raf(frame);
+    console.info("ULOOK Count-Up V4 started");
   }
 
-  function boot() {
-    if (startHeroCountUp()) return;
+  function check() {
+    if (!started && stats && visible(stats)) start();
+  }
 
-    let attempts = 0;
-    const retry = setInterval(function () {
-      attempts++;
-      if (startHeroCountUp() || attempts >= 30) {
-        clearInterval(retry);
-        if (attempts >= 30) {
-          console.error("ULOOK count-up: homepage statistics not found");
+  function install() {
+    if (started) return;
+    stats = findStats();
+
+    if (!stats) {
+      if (!poll) poll = setInterval(function () {
+        attempts++;
+        stats = findStats();
+        if (stats) install();
+        if (started || attempts >= 100) {
+          clearInterval(poll);
+          poll = null;
         }
+      }, 200);
+      return;
+    }
+
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check);
+
+    if ("IntersectionObserver" in window && !observer) {
+      observer = new IntersectionObserver(check, { threshold: 0.01 });
+      observer.observe(stats);
+    }
+
+    if (!poll) poll = setInterval(function () {
+      attempts++;
+      check();
+      if (started || attempts >= 100) {
+        clearInterval(poll);
+        poll = null;
       }
-    }, 100);
+    }, 200);
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", boot, { once: true });
+    document.addEventListener("DOMContentLoaded", install, { once: true });
   } else {
-    boot();
+    install();
   }
+  window.addEventListener("load", install, { once: true });
+  setTimeout(install, 500);
 })();
 </script>
 <style id="ulook-company-terms-side-by-side">
