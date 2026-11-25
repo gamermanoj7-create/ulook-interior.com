@@ -13544,9 +13544,8 @@ footer .ulook-social-link.instagram .ulook-social-icon img{
   }
 
   function check() {
-    if (!started && stats) {
-      if (!document.getElementById("intro")) start();
-      else if (visible(stats)) start();
+    if (!started && stats && !document.getElementById("intro")) {
+      start();
     }
   }
 
