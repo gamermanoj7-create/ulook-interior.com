@@ -117,14 +117,14 @@
 
   addButton(
     "tel:" + PHONE,
-    "/assets/call-original.svg",
+    "assets/call-original.svg",
     "Call ULOOK Interior",
     false
   );
 
   addButton(
     WA_URL,
-    "/assets/whatsapp-original.svg",
+    "assets/whatsapp-original.svg",
     "Chat with ULOOK Interior on WhatsApp",
     true
   );
