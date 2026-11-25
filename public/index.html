@@ -13469,7 +13469,7 @@ footer .ulook-social-link.instagram .ulook-social-icon img{
   }
 
   function start() {
-    if (started || !stats || !visible(stats)) return;
+    if (started || !stats) return;
 
     var nodes = Array.from(stats.querySelectorAll("b"));
     if (nodes.length !== 5) {
@@ -13544,7 +13544,10 @@ footer .ulook-social-link.instagram .ulook-social-icon img{
   }
 
   function check() {
-    if (!started && stats && visible(stats)) start();
+    if (!started && stats) {
+      if (!document.getElementById("intro")) start();
+      else if (visible(stats)) start();
+    }
   }
 
   function install() {
