@@ -13806,21 +13806,19 @@ footer .company-terms-group > .footer-terms-link:focus-visible {
 
 @media (max-width:900px) {
   #gallery .masonry {
-    --gallery-gap: 10px;
+    --gallery-gap: 12px;
     gap: var(--gallery-gap) !important;
   }
   #gallery .masonry > button {
-    flex-basis: calc((100% - var(--gallery-gap)) / 2) !important;
+    flex: 0 0 88% !important;
+    aspect-ratio: 1 / 1 !important;
   }
 }
 
 @media (max-width:380px) {
   #gallery .masonry {
-    --gallery-gap: 8px;
+    --gallery-gap: 10px;
     gap: var(--gallery-gap) !important;
-  }
-  #gallery .masonry > button {
-    flex-basis: calc((100% - var(--gallery-gap)) / 2) !important;
   }
   #gallery .gallery-cta {
     left: 7px !important;
