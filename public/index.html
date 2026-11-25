@@ -2834,8 +2834,21 @@ footer .ulook-social-icon.google-icon img{width:60px!important;height:60px!impor
   object-fit: contain;
   border-radius: 12px;
 }
+#ulook-founder-profile-v1 .ufp-copy {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-width: 0;
+}
 #ulook-founder-profile-v1 #ulook-founder-title {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   color: #38BDF8 !important;
+  -webkit-text-fill-color: #38BDF8 !important;
+  font-size: clamp(30px, 5vw, 54px) !important;
+  line-height: 1.15 !important;
+  margin: 0 0 18px !important;
 }
 #ulook-founder-profile-v1 .ufp-kicker {
   display: block;
@@ -2876,6 +2889,27 @@ footer .ulook-social-icon.google-icon img{width:60px!important;height:60px!impor
   #ulook-founder-profile-v1 .ufp-image {
     width: min(78%, 330px);
   }
+}
+
+/* Founder vision heading above portrait */
+#ulook-founder-profile-v1 .ufp-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 26px !important;
+}
+#ulook-founder-profile-v1 .ufp-vision-heading {
+  display: block !important;
+  width: 100%;
+  text-align: center;
+}
+#ulook-founder-profile-v1 #ulook-founder-vision-title {
+  display: block !important;
+  margin: 0 !important;
+  color: #38BDF8 !important;
+  -webkit-text-fill-color: #38BDF8 !important;
+  font-size: clamp(27px, 5vw, 46px) !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
 }
 </style>
 
@@ -3989,15 +4023,18 @@ footer .footer-brand-image {
 
 <section id="ulook-founder-profile-v1" aria-labelledby="ulook-founder-title">
   <div class="ufp-wrap">
+    <div class="ufp-vision-heading">
+      <h2 id="ulook-founder-vision-title">The Visionary Behind ULLOQ</h2>
+    </div>
     <div class="ufp-image">
       <img src="assets/founder-manoj-2026.jpg"
-           alt="ULOOK Interior founder portrait"
+           alt="ULLOQ Interior founder portrait"
            loading="lazy" decoding="async">
     </div>
     <div class="ufp-copy">
       <span class="ufp-kicker">THE PERSON BEHIND THE VISION</span>
-      <h2 id="ulook-founder-title">The Visionary Behind ULOOK</h2>
-      <p class="ufp-brand">ULOOK INTERIOR</p>
+      <h2 id="ulook-founder-title">Meet the <em>Founder</em></h2>
+      <p class="ufp-brand">ULLOQ INTERIOR</p>
       <p class="ufp-tagline">Choose Quality, Not Quantity.</p>
     </div>
   </div>
